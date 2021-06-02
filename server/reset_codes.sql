@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS reset_codes;
+
+CREATE TABLE reset_codes(
+  id SERIAL PRIMARY KEY,
+  email TEXT NOT NULL,
+  code TEXT NOT NULL CHECK (code != ''),
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
