@@ -3,8 +3,8 @@ const router = express.Router();
 
 const multer = require("multer");
 const uidSafe = require("uid-safe");
-const s3 = require("../s3");
-const { s3Url } = require("../config.json");
+const s3 = require("../utils/s3");
+const { s3Url } = require("../utils/config.json");
 const path = require("path");
 const db = require("../database/db");
 

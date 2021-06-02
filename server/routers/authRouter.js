@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const cryptoRandomString = require("crypto-random-string");
-const { sendEmail } = require("../ses");
-const { hash, compare } = require("../bc");
+const { sendEmail } = require("../utils/ses");
+const { hash, compare } = require("../utils/bc");
 const db = require("../database/db");
 
 router.post("/registration", (req, res) => {
