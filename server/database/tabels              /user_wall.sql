@@ -1,0 +1,11 @@
+
+DROP TABLE IF EXISTS user_wall;
+
+CREATE TABLE user_wall(
+   id SERIAL PRIMARY KEY,
+   user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+   url VARCHAR NOT NULL,
+   description TEXT,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+

@@ -127,4 +127,43 @@ router.post("/uploadBio", (req, res) => {
         });
 });
 
+router.post(
+    "/user/wall/post",
+    upload.single("image"),
+    // s3.upload,
+    (req, res) => {
+        if (req.file) {
+            const id = req.session.userId;
+            // const url = `${s3Url}${req.file.filename}`;
+            let url = `${req.file.filename}`;
+            const description =
+                req.body.description != "undefined"
+                    ? req.body.description
+                    : null;
+            db.addWallPost(id, url, description)
+                .then(({ rows }) => {
+                    res.json({ success: rows[0] });
+                })
+                .catch((err) => {
+                    console.log("Wall post error: ", err);
+                    res.json({ error: true });
+                });
+        } else {
+            res.json({ error: true });
+        }
+    }
+);
+
+router.get("/user/wall/:id", (req, res) => {
+    const { id } = req.params;
+    db.getWallPost(id)
+        .then(({ rows }) => {
+            res.json({ success: rows });
+        })
+        .catch((err) => {
+            console.log("Get wall posts error: ", err);
+            res.json({ error: true });
+        });
+});
+
 module.exports = router;

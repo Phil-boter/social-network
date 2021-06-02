@@ -1,5 +1,20 @@
 export default function (state = {}, action) {
     console.log("reducer running");
+
+    if (action.type == "GET_POSTS") {
+        state = {
+            ...state,
+            wallPosts: action.wallPosts,
+        };
+    }
+
+    if (action.type == "ADD_POST") {
+        state = {
+            ...state,
+            wallPosts: [action.newWallPost, ...state.wallPosts],
+        };
+    }
+
     if (action.type == "FRIENDS_WANNABEES") {
         state = {
             ...state,
@@ -23,8 +38,7 @@ export default function (state = {}, action) {
         };
     }
 
-
-    if(action.type == "CANCEL_FRIEND_REQUST") {
+    if (action.type == "CANCEL_FRIEND_REQUST") {
         state = {
             ...state,
             friendsWannabees: state.friendsWannabees.filter((user) => {
@@ -33,7 +47,7 @@ export default function (state = {}, action) {
         };
     }
 
-    if(action.type == "ADD_CHAT_MESSAGE") {
+    if (action.type == "ADD_CHAT_MESSAGE") {
         console.log("state in add_chat", state);
         console.log("action.addMsg", action.addMsg);
         state = {
@@ -42,12 +56,12 @@ export default function (state = {}, action) {
         };
     }
 
-    if(action.type == "NEW_CHAT_MESSAGE") {
+    if (action.type == "NEW_CHAT_MESSAGE") {
         console.log("state in new_CHAT", state);
         console.log("action.newMessage", action.newMessage);
         state = {
             ...state,
-            chatMessages: [...state.chatMessages, action.newMessage]
+            chatMessages: [...state.chatMessages, action.newMessage],
         };
     }
 

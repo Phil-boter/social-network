@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS user_comment;
+
+CREATE TABLE wall_comments(
+   id SERIAL PRIMARY KEY,
+   post_id INT NOT NULL REFERENCES user_wall(id) ON DELETE CASCADE,
+   author_id INT REFERENCES users(id) ON DELETE SET NULL,
+   comment TEXT NOT NULL,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
