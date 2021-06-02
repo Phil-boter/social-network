@@ -4,7 +4,7 @@ const app = express();
 const compression = require("compression");
 const path = require("path");
 const cookieSession = require("cookie-session");
-const db = require("./db");
+const db = require("./database/db");
 const csurf = require("csurf");
 
 const server = require("http").Server(app);

@@ -6,7 +6,7 @@ const uidSafe = require("uid-safe");
 const s3 = require("../s3");
 const { s3Url } = require("../config.json");
 const path = require("path");
-const db = require("../db");
+const db = require("../database/db");
 
 // --------------------- Multer configurations ------------------------------------------------------
 
