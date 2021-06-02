@@ -74,13 +74,6 @@ export default function Wallpost({ edit, id }) {
                     {imgFileLabel}
                 </label>
             </div>
-            {/* <input
-                className="input-wall-description"
-                name="description"
-                placeholder="Description"
-                type="text"
-                onChange={handleChange}
-            /> */}
             <textarea
                 rows="4"
                 cols="60"

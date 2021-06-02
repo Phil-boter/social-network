@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS user_comment;
+DROP TABLE IF EXISTS wall_comments CASCADE;
 
 CREATE TABLE wall_comments(
    id SERIAL PRIMARY KEY,

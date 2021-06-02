@@ -215,8 +215,7 @@ button {
     min-height: 50px;
 }
 
-.links-container li,
-a {
+.nav-link a {
     display: block;
     font-family: "Freckle Face", cursive;
     color: greenyellow;

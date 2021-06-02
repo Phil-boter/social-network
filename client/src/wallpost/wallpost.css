@@ -1,5 +1,8 @@
 .wallpost-input {
     margin-top: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    border-radius: 0.6rem;
 }
 .post-input {
     display: flex;
@@ -10,8 +13,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
-    border: 1px solid yellow;
     margin-bottom: 1rem;
     height: 3rem;
 }
@@ -29,13 +30,16 @@
     font-size: 1.2rem;
 }
 .input-wall-description {
+    margin: 0 auto;
+    width: 95%;
 }
 .post-container {
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    background-color: seagreen;
-    border-radius: 10px;
+    background-color: rgb(46, 138, 86);
+    border-radius: 0.6rem;
+    margin-bottom: 1rem;
 }
 .post-container > img {
     width: 200px;
@@ -43,5 +47,34 @@
     margin-right: 1rem;
 }
 .wallpost-text {
-    color: black;
+    color: white;
+}
+.modal {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(46, 138, 86, 0.6);
+    z-index: 1;
+}
+
+.modal-box {
+    width: 45%;
+    max-width: 300px;
+    position: fixed;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-height: 80%;
+    display: grid;
+    justify-self: center;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 5px 12px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    padding: 15px;
+    z-index: 2;
+    top: 15%;
+    color: white;
 }

@@ -90,7 +90,8 @@ router.post("/upload", upload.single("file"), (req, res) => {
     console.log("post request is coming");
 
     // let imageUrl = `${s3Url}${req.file.filename}`;
-    let imageUrl = `${req.file.filename}`;
+    let imageUrl = `/${req.file.filename}`;
+    console.log("image url pic", imageUrl);
     let userId = req.session.userId;
     db.uploadImage(imageUrl, userId)
         .then(({ rows }) => {
@@ -135,7 +136,8 @@ router.post(
         if (req.file) {
             const id = req.session.userId;
             // const url = `${s3Url}${req.file.filename}`;
-            let url = `${req.file.filename}`;
+            let url = `/${req.file.filename}`;
+            console.log("url in wallpost", url);
             const description =
                 req.body.description != "undefined"
                     ? req.body.description

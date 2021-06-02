@@ -1,0 +1,46 @@
+.outer-chat-container {
+}
+.inner-chat-container {
+    list-style-type: none;
+    padding: 0 15px 0 15px;
+}
+.chat-field {
+    display: flex;
+    background-color: seagreen;
+    margin: 0.6rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.chat-user {
+    display: flex;
+}
+
+.user-self {
+    border: 2px solid blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 10px 50px;
+    border-radius: 8px;
+    background-color: rgba(0, 139, 139, 0.2);
+    text-align: end;
+    align-items: flex-end;
+}
+
+.user-other {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.chat-pic img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.chat-textarea {
+    display: flex;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    padding: 1rem;
+}

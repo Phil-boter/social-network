@@ -8,9 +8,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import FindPeople from "./findpeople";
 import { Link } from "react-router-dom";
 import Friends from "./friends";
-import Chat from "./chat"
-
-
+import Chat from "./chat";
+import PrivateChat from "./privateChat/PrivateChat";
 
 export default class App extends Component {
     constructor(props) {
@@ -21,39 +20,37 @@ export default class App extends Component {
             image: "",
             id: "",
             bio: "",
-            uploaderIsVisible: false
+            uploaderIsVisible: false,
         };
         // we could bind setImage with the arrow function syntax, too!
         this.setImage = this.setImage.bind(this);
         this.toggleUploader = this.toggleUploader.bind(this);
-        this.setBio= this.setBio.bind(this);
-        this.closeUploader= this.closeUploader.bind(this);
+        this.setBio = this.setBio.bind(this);
+        this.closeUploader = this.closeUploader.bind(this);
         // this.setNavigation = this.setNavigation.bind(this);
     }
 
     componentDidMount() {
         console.log("component did mount");
 
-        axios.get("/user.json")
-            .then(({data})=> {
-                if(data.success){
-                    console.log("data",data);
-                    this.setState({
-                        success: true,
-                        id: data.id,
-                        first: data.first,
-                        last: data.last,
-                        image: data.image,
-                        bio: data.bio,
-                        uploaderIsVisible: false,
-                    });
-                    console.log("state", this.state);
-                }
-                else {
-                    this.setState({
-                        error: true
-                    });
-                }
+        axios.get("/user.json").then(({ data }) => {
+            if (data.success) {
+                console.log("data", data);
+                this.setState({
+                    success: true,
+                    id: data.id,
+                    first: data.first,
+                    last: data.last,
+                    image: data.image,
+                    bio: data.bio,
+                    uploaderIsVisible: false,
+                });
+                console.log("state", this.state);
+            } else {
+                this.setState({
+                    error: true,
+                });
+            }
         });
     }
 
@@ -65,7 +62,7 @@ export default class App extends Component {
     }
 
     closeUploader() {
-        console.log("click close uploader")
+        console.log("click close uploader");
         this.setState({
             uploaderIsVisible: false,
         });
@@ -87,7 +84,7 @@ export default class App extends Component {
         });
     }
 
-    setBio(bio){
+    setBio(bio) {
         console.log("newBio", bio);
         this.setState({
             bio: bio,
@@ -95,117 +92,109 @@ export default class App extends Component {
         });
     }
 
-
     render() {
         console.log("this.state.first: ", this.state.first);
         console.log("this.state.last: ", this.state.last);
         return (
-  
-        <BrowserRouter> 
-            <>  
-                <div className="app-container">
-                    <div className="header">
-                        <div className="logo">
-                            <img src="/monkeyBack.png" />
-                        </div>
-                        <div>
-                            <ul className="links-container">
-                                <li>
-                                    <Link                   
-                                        to="/chat"
-                                        >Chat
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to="/friends"
-                                    >Friends
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to="/users"
-                                    >Find People
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to="/"
-                                    >Profile
-                                    </Link>
-                                </li>
-                                <li>
-                                    <a href="/logout">logout</a>
-                                </li>
-                            </ul>
-                            <img className="header-palm" src="/palme1.png" />
-                        </div>
-                        <div className ="header-pic" onClick={this.toggleUploader}>
-                            <ProfilePic 
+            <BrowserRouter>
+                <>
+                    <div className="app-container">
+                        <div className="header">
+                            <div className="logo">
+                                <img src="/monkeyBack.png" />
+                            </div>
+                            <div>
+                                <ul className="links-container">
+                                    <li className="nav-link">
+                                        <Link to="/chat">Chat</Link>
+                                    </li>
+
+                                    <li className="nav-link">
+                                        <Link to="/friends">Friends</Link>
+                                    </li>
+                                    <li className="nav-link">
+                                        <Link to="/users">Find People</Link>
+                                    </li>
+                                    <li className="nav-link">
+                                        <Link to="/">Profile</Link>
+                                    </li>
+                                    <li className="nav-link">
+                                        <a href="/logout">logout</a>
+                                    </li>
+                                </ul>
+                                <img
+                                    className="header-palm"
+                                    src="/palme1.png"
+                                />
+                            </div>
+                            <div
+                                className="header-pic"
+                                onClick={this.toggleUploader}
+                            >
+                                <ProfilePic
                                     toggleUploader={this.toggleUploader}
                                     first={this.state.first}
                                     last={this.state.last}
-                                    image={this.state.image} />
-                        </div>        
-
-                    </div>
-                    <div className="uploader-container">
-                        {this.state.uploaderIsVisible && (
-                                <Uploader 
-                                    setImage={this.setImage} 
+                                    image={this.state.image}
+                                />
+                            </div>
+                        </div>
+                        <div className="uploader-container">
+                            {this.state.uploaderIsVisible && (
+                                <Uploader
+                                    setImage={this.setImage}
                                     closeUploader={this.closeUploader}
                                 />
-                        )}
+                            )}
+                        </div>
                     </div>
-                </div>
 
-
-            <Route
-                exact
-                path="/"
-                render={() =>(
-                    <Profile 
-                        toggleUploader={this.toggleUploader}
-                        id={this.state.id}
-                        first={this.state.first}
-                        last={this.state.last}
-                        image={this.state.image}
-                        bio={this.state.bio}
-                        setBio={this.setBio}
+                    <Route
+                        exact
+                        path="/"
+                        render={() => (
+                            <Profile
+                                toggleUploader={this.toggleUploader}
+                                id={this.state.id}
+                                first={this.state.first}
+                                last={this.state.last}
+                                image={this.state.image}
+                                bio={this.state.bio}
+                                setBio={this.setBio}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            <Route
-                path="/user/:id"
-                render={props => (
-                    <OtherProfile
-                        key={props.match.url}
-                        id={this.state.id}
-                        match={props.match}
-                        history={props.history}
+                    <Route
+                        path="/user/:id"
+                        render={(props) => (
+                            <OtherProfile
+                                key={props.match.url}
+                                id={this.state.id}
+                                match={props.match}
+                                history={props.history}
+                            />
+                        )}
                     />
-                )}
-            />
+                    <Route
+                        path="/privateChat/:id"
+                        render={(props) => (
+                            <PrivateChat
+                                key={props.match.url}
+                                match={props.match}
+                                history={props.history}
+                                id={this.state.id}
+                            />
+                        )}
+                    />
 
-            <Route 
-                path="/chat"
-                render={() => <Chat />}
-            />
+                    <Route path="/chat" render={() => <Chat />} />
 
+                    <Route path="/users" render={() => <FindPeople />} />
 
-            <Route 
-                path="/users"
-                render={() => <FindPeople />}
-            />
-
-            <Route 
-                path="/friends"
-                render={() => <Friends />}
-            />
-            </>    
-        </BrowserRouter> 
-       
+                    <Route path="/friends" render={() => <Friends />} />
+                </>
+            </BrowserRouter>
         );
     }
 }

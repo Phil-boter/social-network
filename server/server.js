@@ -12,6 +12,7 @@ const server = require("http").Server(app);
 const authRouter = require("./routers/authRouter");
 const userRouter = require("./routers/userRouter");
 const friendsRouter = require("./routers/friendsRouter");
+const chatRouter = require("./routers/chatRouter");
 
 const io = require("socket.io")(server, {
     allowRequest: (req, callback) =>
@@ -56,6 +57,7 @@ app.get("/welcome", (req, res) => {
 app.use(authRouter);
 app.use(userRouter);
 app.use(friendsRouter);
+app.use(chatRouter);
 
 // always has to be at last before .listen
 app.get("*", function (req, res) {

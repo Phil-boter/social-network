@@ -1,6 +1,31 @@
 export default function (state = {}, action) {
     console.log("reducer running");
 
+    if (action.type == "GET_PRIVATE_MESSAGES") {
+        state = {
+            ...state,
+            privateMessages: action.privateMessages,
+        };
+    }
+
+    if (action.type == "SEND_PRIVATE_MESSAGE") {
+        state = {
+            ...state,
+            privateMessages: [
+                ...state.privateMessages,
+                action.sentPrivateMessage,
+            ],
+        };
+    }
+
+    if (action.type == "GET_MESSAGES") {
+        state = {
+            ...state,
+            chatMessages: action.chatMessages,
+            idSelf: action.userId,
+        };
+    }
+
     if (action.type == "GET_POSTS") {
         state = {
             ...state,

@@ -1,5 +1,5 @@
 
-DROP TABLE IF EXISTS user_wall;
+DROP TABLE IF EXISTS user_wall CASCADE;
 
 CREATE TABLE user_wall(
    id SERIAL PRIMARY KEY,

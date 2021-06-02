@@ -2,6 +2,7 @@ import { Component } from "react";
 import axios from "./axios";
 import FriendButton from "./friendbutton";
 import Wallpost from "./wallpost/Wallpost";
+import { Link } from "react-router-dom";
 
 export default class OtherProfile extends Component {
     constructor(props) {
@@ -111,6 +112,9 @@ export default class OtherProfile extends Component {
                             {this.state.first} {this.state.last}
                         </h3>
                         {this.renderUserBio()}
+                        <Link to={`/privateChat/${this.state.id}`}>
+                            <button className="standard-button">Message</button>
+                        </Link>
                         <Wallpost edit={false} id={this.state.id} />
                     </div>
                 </div>
