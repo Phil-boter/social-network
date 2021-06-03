@@ -95,19 +95,19 @@ router.post("/deleteFriendship/:otherUserId", (req, res) => {
         });
 });
 
-// app.post("/cancelFriendRequest/:otherUserId", (req,res)=> {
-//     console.log("post cancelFriedRequest");
-//     let otherUserId = req.params.otherUserId;
-//     let userId = req.session.userId;
-//     db.cancelFriendshipRequest(userId ,otherUserId)
-//         .then(()=> {
-//             res.json({ success: true });
-//         })
-//         .catch ((error) => {
-//             console.log("error in cancelFriendRequest", error);
-//             res.json({ success: false });
-//         })
-// })
+router.post("/cancelFriendRequest/:otherUserId", (req, res) => {
+    console.log("post cancelFriedRequest");
+    let otherUserId = req.params.otherUserId;
+    let userId = req.session.userId;
+    db.cancelFriendshipRequest(userId, otherUserId)
+        .then(() => {
+            res.json({ success: true });
+        })
+        .catch((error) => {
+            console.log("error in cancelFriendRequest", error);
+            res.json({ success: false });
+        });
+});
 
 router.get("/friendsWannabees", (req, res) => {
     console.log("get friendsWannabees");

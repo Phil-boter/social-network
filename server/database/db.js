@@ -137,12 +137,12 @@ module.exports.deleteFriendship = (userId, otherUserId) => {
     );
 };
 
-// module.exports.cancelFriendshipRequest = (userId, otherUserId) => {
-//     return db.query(
-//         `DELETE FROM friendships WHERE sender_id = $1 AND recipient_id = $2;`,
-//         [userId, otherUserId]
-//     );
-// };
+module.exports.cancelFriendshipRequest = (userId, otherUserId) => {
+    return db.query(
+        `DELETE FROM friendships WHERE sender_id = $1 AND recipient_id = $2;`,
+        [userId, otherUserId]
+    );
+};
 
 //  -------- friends and wannabees
 
