@@ -1,35 +1,38 @@
-.outer-chat-container {
+.private-chat {
+    text-align: center;
+    color: greenyellow;
 }
+
 .inner-chat-container {
     list-style-type: none;
-    padding: 0 15px 0 15px;
+    padding: 0 1rem 0 1rem;
 }
-.chat-field {
+
+.user-self-container {
     display: flex;
-    background-color: seagreen;
-    margin: 0.6rem;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.chat-user {
-    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.8rem;
+    width: 100%;
 }
 
 .user-self {
-    border: 2px solid blue;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 10px 10px 50px;
-    border-radius: 8px;
-    background-color: rgba(0, 139, 139, 0.2);
-    text-align: end;
-    align-items: flex-end;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    max-width: 70%;
+    border-radius: 0.6rem;
 }
-
-.user-other {
+.user-other-container {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    width: 100%;
+    margin-top: 0.8rem;
+}
+.user-other {
+    background-color: rgba(24, 88, 52, 0.9);
+    padding: 1rem;
+    max-width: 70%;
+    border-radius: 0.6rem;
 }
 
 .chat-pic img {

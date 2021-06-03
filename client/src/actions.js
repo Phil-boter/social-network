@@ -19,6 +19,14 @@ export async function sendPrivateMessage(message, id) {
     };
 }
 
+export function getMessages({ result }, id) {
+    return {
+        type: "GET_MESSAGES",
+        chatMessages: result,
+        userId: id,
+    };
+}
+
 export async function getWallPosts(id) {
     console.log("Action wall ", id);
     const { data } = await axios.get(`/user/wall/${id}`);
