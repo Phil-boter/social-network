@@ -5,8 +5,10 @@ import {
     acceptFriendRequest,
     cancelFriendRequest,
     getFriendsWannabees,
-} from "./actions";
-import ProfilePic from "./profilepic";
+} from "../../redux/actions";
+import ProfilePic from "../../components/profilePic/profilepic";
+
+import "./friends.css";
 
 export default function Friends() {
     const dispatch = useDispatch();

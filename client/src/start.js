@@ -5,10 +5,9 @@ import reduxPromise from "redux-promise";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { init } from "./socket";
 
-import reducer from "./reducer";
+import reducer from "./redux/reducer";
 import Welcome from "./welcome";
 import App from "./app";
-
 
 let elem;
 
@@ -17,10 +16,9 @@ const store = createStore(
     composeWithDevTools(applyMiddleware(reduxPromise))
 );
 
-if(location.pathname === "/welcome") {
+if (location.pathname === "/welcome") {
     elem = <Welcome />;
-}
-else {
+} else {
     init(store);
     elem = (
         <Provider store={store}>
@@ -30,5 +28,3 @@ else {
 }
 
 ReactDOM.render(elem, document.querySelector("main"));
-
-

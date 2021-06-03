@@ -1,6 +1,6 @@
 // client/src/socket.js
 import io from "socket.io-client";
-import { chatMessages, addMessageToRedux } from "./actions";
+import { chatMessages, addMessageToRedux } from "./redux/actions";
 
 export let socket;
 
@@ -11,7 +11,7 @@ export const init = (store) => {
     }
 
     socket.on("myNewMessage", (newMessage) => {
-        // this will run when a user posts a new message 
+        // this will run when a user posts a new message
         store.dispatch(chatMessages(newMessage));
     });
 

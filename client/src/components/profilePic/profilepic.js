@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./profilepic.css";
+
 export default function ProfilePic(props) {
     console.log("props in ProfilePic: ", props);
     return (

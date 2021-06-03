@@ -1,7 +1,9 @@
 import React from "react";
-import ProfilePic from "./profilepic";
-import BioEditor from "./bioeditor";
-import Wallpost from "./wallpost/Wallpost";
+import ProfilePic from "../../components/profilePic/profilepic";
+import BioEditor from "../../components/bioEditor/bioeditor";
+import Wallpost from "../../components/wallpost/Wallpost";
+
+import "./profile.css";
 
 export default function Profile(props) {
     console.log("props in profile", props);

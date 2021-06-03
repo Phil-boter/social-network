@@ -1,15 +1,15 @@
 import { Component } from "react";
-import ProfilePic from "./profilepic";
-import Uploader from "./uploader";
+import ProfilePic from "./components/profilePic/profilepic";
+import Uploader from "./components/uploader/uploader";
 import axios from "./axios";
-import Profile from "./profile";
-import OtherProfile from "./otherprofile";
+import Profile from "./routes/profile/profile";
+import OtherProfile from "./routes/otherProfile/otherprofile";
 import { BrowserRouter, Route } from "react-router-dom";
-import FindPeople from "./findpeople";
+import FindPeople from "./routes/findpeople/findpeople";
 import { Link } from "react-router-dom";
-import Friends from "./friends";
-import Chat from "./chat";
-import PrivateChat from "./privateChat/PrivateChat";
+import Friends from "./routes/friends/friends";
+import Chat from "./routes/chat/chat";
+import PrivateChat from "./routes/privateChat/PrivateChat";
 
 export default class App extends Component {
     constructor(props) {

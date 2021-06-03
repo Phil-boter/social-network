@@ -1,8 +1,10 @@
 import { Component } from "react";
-import axios from "./axios";
-import FriendButton from "./friendbutton";
-import Wallpost from "./wallpost/Wallpost";
+import axios from "../../axios";
+import FriendButton from "../../components/friendButton/friendbutton";
+import Wallpost from "../../components/wallpost/Wallpost";
 import { Link } from "react-router-dom";
+
+import "./otherprofile.css";
 
 export default class OtherProfile extends Component {
     constructor(props) {

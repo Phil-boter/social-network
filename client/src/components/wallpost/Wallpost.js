@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getWallPosts, addWallPost } from "../actions";
-import useStatefulFields from "../hooks/useStatefulFields";
+import { getWallPosts, addWallPost } from "../../redux/actions";
+import useStatefulFields from "../../hooks/useStatefulFields";
 
 import "./wallpost.css";
 

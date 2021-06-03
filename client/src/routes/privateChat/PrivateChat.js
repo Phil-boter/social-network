@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useRef, useEffect } from "react";
-import ProfilePic from "../profilepic";
-import { getPrivateMessages, sendPrivateMessage } from "../actions";
+import ProfilePic from "../../components/profilePic/profilepic";
+import { getPrivateMessages, sendPrivateMessage } from "../../redux/actions";
 
 import "./privateChat.css";
 
