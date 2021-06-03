@@ -12,7 +12,8 @@ MONKEY BUSINESS is a clone of other social-networks like facebook
     The user can also make friend-request, accept or ignore them,
     watch already accepted requests and delete existing friendships.
     There is also a build in search function to search for new frienships.
-    The user has the possibility to write wallposts and attach pictures to them, other users can read them when they call up the profile.
+    The user has the possibility to write wallposts and attach pictures to them,
+    other users can read them when they call up the profile.
     With socket.io there is also a real time group chat implemented.
     Users can also send private messages, if they are friends.
 
