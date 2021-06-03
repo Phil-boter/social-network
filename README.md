@@ -16,6 +16,7 @@ MONKEY BUSINESS is a clone of other social-networks like facebook
     other users can read them when they call up the profile.
     With socket.io there is also a real time group chat implemented.
     Users can also send private messages, if they are friends.
+    Tests are made with Jest.js.
 
 ## Technologies
 
