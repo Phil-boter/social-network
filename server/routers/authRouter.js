@@ -67,15 +67,15 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-    console.log("userId logout before", req.session.userId);
+    // console.log("userId logout before", req.session.userId);
     req.session = null;
-    console.log("userId logout after", req.session);
+    // console.log("userId logout after", req.session);
     res.redirect("/welcome");
 });
 
 router.post("/password/reset/start", (req, res) => {
     console.log("post reset/start");
-    console.log("email", req.body);
+    // console.log("email", req.body);
     db.getUserByEmail(req.body.email)
         .then(({ rows }) => {
             const secretCode = cryptoRandomString({

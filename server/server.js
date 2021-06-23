@@ -126,7 +126,6 @@ io.on("connection", function (socket) {
             });
     });
 });
-
 // const onlineUsers = {};
 // let newUser = {};
 //     // // get online users

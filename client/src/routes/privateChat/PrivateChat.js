@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useRef, useEffect } from "react";
+// import { socket } from "../../socket";
 import ProfilePic from "../../components/profilePic/profilepic";
 import { getPrivateMessages, sendPrivateMessage } from "../../redux/actions";
 
@@ -27,6 +28,10 @@ export default function PrivateChat(props) {
         if (e.key === "Enter") {
             e.preventDefault();
             dispatch(sendPrivateMessage(e.target.value, otherId));
+            console.log("user pressed enter!");
+            // send message off to server using sockets
+            // socket.emit will send a message to the server
+            // socket.emit("sendPrivateMessage", e.target.value);
             e.target.value = null;
         }
     };

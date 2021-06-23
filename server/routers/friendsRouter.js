@@ -20,7 +20,7 @@ router.get("/latestUsers", (req, res) => {
 
 router.get("/searchForUsers/:input", (req, res) => {
     console.log("get request searechForUSers");
-    console.log("req.params :", req.params);
+    // console.log("req.params :", req.params);
     let input = req.params.input;
     db.searchForUsers(input)
         .then(({ rows }) => {

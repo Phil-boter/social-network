@@ -111,8 +111,8 @@ router.post("/upload", upload.single("file"), (req, res) => {
 
 router.post("/uploadBio", (req, res) => {
     console.log("post uploadBio");
-    console.log("req.body :", req.body);
-    console.log("req.session:", req.session.userId);
+    // console.log("req.body :", req.body);
+    // console.log("req.session:", req.session.userId);
     let bio = req.body.bio;
     let userId = req.session.userId;
     db.updateBio(bio, userId)
