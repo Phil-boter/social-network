@@ -9,7 +9,7 @@
         "dev:server": "nodemon --watch server server/server.js",
         "dev": "concurrently \"npm:dev:*\" --kill-others",
         "start": "node server/server.js",
-        "test": "jest"
+        "test": "jest --watch"
     },
     "engines": {
         "node": "14"

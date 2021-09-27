@@ -3,11 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getWallPosts, addWallPost } from "../../redux/actions";
 import useStatefulFields from "../../hooks/useStatefulFields";
 
-import "./wallpost.css";
-
 export default function Wallpost({ edit, id }) {
-    console.log("wall", id, edit);
-
     const [values, handleChange] = useStatefulFields();
     const [imgFile, setImgFile] = useState();
     const [imgFileLabel, setImgFileLabel] = useState(
@@ -111,7 +107,7 @@ export default function Wallpost({ edit, id }) {
 
     return (
         <>
-            <div className="wallpost-input">
+            <div className="wallpost-input" data-testid="wall-container">
                 {error && (
                     <p className="error-message">
                         {" "}
