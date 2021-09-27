@@ -68,6 +68,7 @@ export default class BioEditor extends Component {
                         <button
                             className="edit-button"
                             onClick={() => this.editBio()}
+                            data-testid="edit-button"
                         >
                             Edit
                         </button>
@@ -79,6 +80,7 @@ export default class BioEditor extends Component {
                         <p>Tell us something about yourself</p>
                         <button
                             className="edit-button"
+                            data-testid="upload-button"
                             onClick={() => this.editBio()}
                         >
                             Add your bio now
@@ -97,6 +99,7 @@ export default class BioEditor extends Component {
                     />
                     <button
                         className="upload-button"
+                        data-testid="upload-button"
                         onClick={() => this.uploadBio()}
                     >
                         Upload

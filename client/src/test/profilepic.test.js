@@ -1,5 +1,6 @@
-import ProfilePic from "../profilepic";
-import { render, fireEvent } from "@testing-library/react";
+import ProfilePic from "../components/profilePic/profilepic";
+
+import { render, fireEvent, screen } from "@testing-library/react";
 
 test("When no url is passed a placeholder is used as src.", () => {
     const { container } = render(<ProfilePic />);
@@ -23,10 +24,12 @@ test("When first and last props are passed, first and last are assigned the valu
     expect(container.querySelector("img").alt).toBe("foo bar");
 });
 
-test("toggleUploader prop runs when the image is clicked.", () => {
+test("uploader prop runs when the image is clicked.", () => {
     const mockOnClick = jest.fn();
+    mockOnClick.mockReturnValue(true);
     const { container } = render(<ProfilePic onClick={mockOnClick} />);
 
-    fireEvent.click(container.querySelectorAll("img"));
-    expect(mockOnClick.mock.calls.length).toEqual(1);
+    console.log(fireEvent.click(container.querySelector("img")));
+    fireEvent.click(container.querySelector("img"));
+    expect(mockOnClick.mock.results[0].value).toBe(true);
 });

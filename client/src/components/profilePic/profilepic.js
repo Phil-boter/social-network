@@ -3,7 +3,6 @@ import React from "react";
 import "./profilepic.css";
 
 export default function ProfilePic(props) {
-    console.log("props in ProfilePic: ", props);
     return (
         <>
             {props.image ? (
@@ -12,6 +11,7 @@ export default function ProfilePic(props) {
                     src={props.image}
                     onClick={props.toggleUploader}
                     alt={`${props.first} ${props.last}`}
+                    data-testid="profile-pic"
                 />
             ) : (
                 <img
@@ -19,6 +19,7 @@ export default function ProfilePic(props) {
                     src="/monkeyBack.png"
                     onClick={props.toggleUploader}
                     alt={`${props.first} ${props.last}`}
+                    data-testid="profile-pic"
                 />
             )}
         </>

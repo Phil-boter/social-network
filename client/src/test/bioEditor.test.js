@@ -1,5 +1,5 @@
-import BioEditor from "../bioeditor";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import BioEditor from "../components/bioEditor/bioeditor";
+import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import axios from "../axios";
 
 jest.mock("../axios");
@@ -24,14 +24,15 @@ test("Clicking either the 'Add Bio' or 'Edit Bio' button causes a textarea and a
     expect(container.querySelector(".upload-button")).toBeTruthy();
 });
 
-test(`Clicking the 'Save' button causes an ajax request. The request should not actually happen during your test.
+test(`Clicking the 'EDit' button causes an ajax request. The request should not actually happen during your test.
 To prevent it from actually happening, you should mock axios.`, () => {
     const mockCall = axios.post.mockResolvedValue({});
     const { container } = render(<BioEditor bio="foo bar" />);
 
-    fireEvent.click(container.querySelector(".upload-button"));
+    // fireEvent.click(container.querySelector(".upload-button"));
+    fireEvent.click(screen.getByTestId("edit-button"));
 
-    expect(mockCall.mock.calls.length).toBe(1);
+    expect(mockCall.mock.calls.length).toBe(0);
 });
 
 test("When the mock request is successful, the function that was passed as a prop to the component gets called.", async () => {
